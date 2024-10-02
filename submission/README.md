@@ -10,8 +10,7 @@ Proyek ini bertujuan untuk menganalisis data peminjaman sepeda dengan menggunaka
 - **Analisis Musiman**: Mengidentifikasi tren peminjaman berdasarkan waktu dan musim.
 - **Dashboard Interaktif**: Menyediakan dashboard menggunakan Streamlit untuk menjelajahi data.
 
-## Teknologi yang Digunakan
-- Python
+## Library yang Digunakan
 - Pandas
 - NumPy
 - Matplotlib
@@ -35,7 +34,7 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 ```
 
+Jalankan perintah berikut di terminal
 ```
-jalankan di terminal
 streamlit run submission/Dashboard/Dashboard_Streamlit.py
 ```
