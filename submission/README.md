@@ -4,11 +4,10 @@
 Proyek ini bertujuan untuk menganalisis data peminjaman sepeda dengan menggunakan teknik analisis dan visualisasi. Analisis ini mencakup pemahaman pola peminjaman berdasarkan faktor cuaca, waktu, dan kategori peminjaman.
 
 ## Fitur Utama
-- **Visualisasi Data**: Menyajikan visualisasi yang informatif tentang peminjaman sepeda.
-- **Analisis Kategori**: Mengelompokkan peminjaman dalam kategori "Rendah", "Sedang", "Tinggi", dan "Sangat Tinggi".
-- **Analisis Cuaca**: Menganalisis dampak faktor cuaca terhadap peminjaman sepeda.
-- **Analisis Musiman**: Mengidentifikasi tren peminjaman berdasarkan waktu dan musim.
-- **Dashboard Interaktif**: Menyediakan dashboard menggunakan Streamlit untuk menjelajahi data.
+- **Visualisasi Data**: Menyajikan visualisasi tentang peminjaman sepeda.
+- **Analisis Berdasarkan Kategori**: Mengelompokkan peminjaman dalam kategori "Rendah", "Sedang", "Tinggi", dan "Sangat Tinggi".
+- **Analisis Berdasarkan Cuaca**: Menganalisis dampak faktor cuaca terhadap peminjaman sepeda.
+- **Dashboard Interaktif**: Menyediakan dashboard yang dapat menyediakan informasi berdasarkan rentang waktu.
 
 ## Library yang Digunakan
 - Pandas
@@ -20,7 +19,7 @@ Proyek ini bertujuan untuk menganalisis data peminjaman sepeda dengan menggunaka
 ## Instalasi
 1. Clone repositori ini:
    ```bash
-   git clone https://github.com/username/repo-name.git
+   git clone https://github.com/SanjayaCF/Sanjaya-Cahyadi-Fuad_Proyek_Analisa-Data.git
    cd repo-name
    ```
 
