@@ -30,7 +30,7 @@ st.title('Dashboard Interaktif Data Penyewaan Sepeda')
 st.markdown('''            
 ## Pengenalan
 Dashboard ini memberikan analisa data penyewaan sepeda berdasarkan rentang waktu. Anda dapat mencoba bereksperimen dengan tanggal 
-guna memahami bagaimana berbagai faktor seperti kondisi cuaca, musim, dan hari kerja memengaruhi pola penyewaan sepeda. 
+guna memahami bagaimana berbagai faktor seperti kondisi cuaca, musim, dan tipe hari memengaruhi pola penyewaan sepeda. 
 ''')
 
 st.subheader('Gambaran Umum Dataset')
@@ -47,6 +47,18 @@ if 'dteday' in data.columns:
 
 st.write(f"Data yang Difilter (menampilkan {len(data)} baris):")
 st.write(data)
+
+def categorize_rentals(cnt):
+    if cnt < 1000:
+        return "Rendah"
+    elif 1000 <= cnt <= 5000:
+        return "Sedang"
+    elif 5000 < cnt <= 10000:
+        return "Tinggi"
+    else:
+        return "Sangat Tinggi"
+
+data['Kategori_Penyewaan'] = data['cnt'].apply(categorize_rentals)
 
 st.subheader('Visualisasi')
 
@@ -80,6 +92,13 @@ sns.heatmap(data[['temp', 'hum', 'cnt']].corr(), annot=True, cmap='coolwarm', li
 plt.title('Korelasi Penyewaan dengan Suhu dan Kelembaban')
 st.pyplot(plt)
 
+# Showing the binning results in a pie chart
+st.markdown('### Kategori Penyewaan Sepeda')
+plt.figure(figsize=(6, 6))
+data['Kategori_Penyewaan'].value_counts().plot.pie(autopct='%1.1f%%', colors=['lightblue', 'lightgreen', 'coral', 'purple'])
+plt.title('Kategori Penyewaan Sepeda (Rendah, Sedang, Tinggi, Sangat Tinggi)')
+st.pyplot(plt)
+
 st.subheader('Kesimpulan')
 if len(data) > 0:
     total_rentals = data['cnt'].sum()
@@ -92,10 +111,10 @@ if len(data) > 0:
     - **Rata-rata Kelembaban**: {avg_humidity:.2f}
     
     Berdasarkan analisis di atas, Anda dapat menarik kesimpulan bahwa:
-    - **Musim**: Musim tertentu memiliki pengaruh yang signifikan terhadap jumlah penyewaan.
-    - **Hari Kerja**: Hari kerja cenderung memiliki lebih banyak penyewaan dibandingkan akhir pekan.
-    - **Cuaca**: Terdapat pengaruh antara kondisi cuaca dan jumlah penyewaan, yang menunjukkan pola perilaku penyewaan sepeda.
-    - **Korelasi Suhu dan Kelembaban**: Ada hubungan antara suhu dan kelembaban dengan jumlah penyewaan, yang dapat membantu dalam analisis lebih lanjut.
+    - **Cuaca**: Pemesanan sepeda menurun signifikan pada hari hujan atau cuaca buruk.
+    - **Musim**: Musim tertentu sangat memengaruhi pola penyewaan.
+    - **Hari Kerja**: Hari kerja memiliki lebih banyak penyewaan dibandingkan akhir pekan.
+    - **Kategori Penyewaan**: Kategori 'Tinggi' dan 'Sangat Tinggi' lebih sering terjadi pada cuaca yang baik.
     ''')
 else:
     st.write("Tidak ada data yang memenuhi rentang waktu yang dipilih.")
