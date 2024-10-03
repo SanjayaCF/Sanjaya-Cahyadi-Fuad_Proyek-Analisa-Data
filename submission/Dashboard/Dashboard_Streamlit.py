@@ -25,7 +25,7 @@ st.markdown('''
 **ID Dicoding:** sanjayacf<br>
 ''')
 
-st.title('Dashboard Interaktif Data Penyewaan Sepeda')
+st.title('Dashboard Analisa Data Penyewaan Sepeda')
 
 st.markdown('''            
 ## Pengenalan
@@ -33,7 +33,7 @@ Dashboard ini memberikan analisa data penyewaan sepeda berdasarkan rentang waktu
 guna memahami bagaimana berbagai faktor seperti kondisi cuaca, musim, dan tipe hari memengaruhi pola penyewaan sepeda. 
 ''')
 
-st.subheader('Gambaran Umum Dataset')
+st.subheader('Sampel Dataset day.csv')
 st.write(data.head())
 
 st.sidebar.header('Filter Tanggal')
@@ -45,7 +45,7 @@ if 'dteday' in data.columns:
     data = data[(data['dteday'] >= pd.to_datetime(date_range[0])) & 
                 (data['dteday'] <= pd.to_datetime(date_range[1]))]
 
-st.write(f"Data yang Difilter (menampilkan {len(data)} baris):")
+st.write(f"Data day.csv yang Difilter (menampilkan {len(data)} baris):")
 st.write(data)
 
 def categorize_rentals(cnt):
@@ -110,7 +110,7 @@ if len(data) > 0:
     - **Rata-rata Suhu**: {avg_temp:.2f}
     - **Rata-rata Kelembaban**: {avg_humidity:.2f}
     
-    Berdasarkan analisis di atas, Anda dapat menarik kesimpulan bahwa:
+    Berdasarkan analisis di atas, dapat ditarik kesimpulan bahwa:
     - **Cuaca**: Pemesanan sepeda menurun signifikan pada hari hujan atau cuaca buruk.
     - **Musim**: Musim tertentu sangat memengaruhi pola penyewaan.
     - **Hari Kerja**: Hari kerja memiliki lebih banyak penyewaan dibandingkan akhir pekan.
